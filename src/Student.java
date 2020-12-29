@@ -1,5 +1,5 @@
-public class Student {
-    String name;
-    String surname;
-    double studentID;
+public class Student<T> {
+    T name;
+    T surname;
+    T studentID;
 }

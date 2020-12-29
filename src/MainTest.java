@@ -6,7 +6,8 @@ public class MainTest {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         while(true) {
-            System.out.println("0. Exit\n"+
+            System.out.println(
+                    "0. Exit\n"+
                     "1. Add student\n"+
                     "2. Delete student\n"+
                     "3. Find student\n"+
