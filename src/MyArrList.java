@@ -1,18 +1,11 @@
 public class MyArrList<T>
 {
     private static final int DEFAULT_CAPACITY = 10;
-    
+
     private T[] theItems;
     private int theSize;
 
-    public boolean isContainID (String givenID){
-        for(int i = 0 ; i < theItems.length ; i++){
-            if( get(i).studentID == givenID){
-                return false;
-            }
-        }
-        return false;
-    }
+
 
     
     public MyArrList()
@@ -38,39 +31,34 @@ public class MyArrList<T>
     {
         if( idx < 0 || idx >= theSize )
             throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + theSize );
-        
-        T old = theItems[ idx ];    
+
+        T old = theItems[ idx ];
         theItems[ idx ] = newVal;
         
         return old;    
     }
-    
+
+
     public void add(T x)
     {
-        add(theSize, x);
-    }
-    
-    public void add(int idx, T x)
-    {
-        if( idx < 0 || idx > theSize )
-            throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + theSize );
-        
+
+
         if(theItems.length == theSize)
             ensureCapacity(theSize * 2);
 
-        for(int i=theSize; i>idx; i--)
-            theItems[i] = theItems[i - 1];
+        if(theSize==0){
+            theItems[0]=x;
 
-        theItems[idx] = x;
-        
+        }
+
         theSize++;  
     }
-      
+
     public T remove(int idx)
     {
         if( idx < 0 || idx >= theSize )
             throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + theSize );
-        
+
         T removedItem = theItems[ idx ];
         
         for(int i=idx; i<theSize-1; i++)
@@ -114,5 +102,15 @@ public class MyArrList<T>
         
         for( int i = 0; i < theSize; i++ )
             theItems[ i ] = old[ i ];
-    } 
+    }
+    public boolean isContain(T x){
+        for(int i = 0 ; i < theItems.length ; i++ ) {
+            if (x.equals(theItems[i]))
+                return true;
+        }
+        return false;
+    }
+
+
+
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MainTest {
 
-    
+
 
     public static void main(String[] args) {
         MyArrList<Student> arrList1 = new MyArrList<>();
@@ -47,16 +47,22 @@ public class MainTest {
                             String answerSurname = input.nextLine();
 
                             System.out.println("Please enter the ID ");
-                            String answerID = input.nextLine();
+                            int answerID = Integer.parseInt(input.nextLine());
 
-                            if(answerID = for(int i=0; i<MyArrList.length; i++){
+                            for(int i = 0 ; i < arrList1.size() ; i++ ){
+                                if(arrList1.equals(answerID))
+                                    System.out.println("This ID already exists.");
+                                    break;
+                            }
+                            break;
 
-                            })
 
                         }
                         break;
 
                     case 2:
+                        System.out.println("Please enter the ID that you want to delete");
+                        String wantedToDeleteID = input.nextLine();
 
                         break;
                     case 3:
