@@ -1,9 +1,14 @@
 
 
 import java.util.Scanner;
+
 public class MainTest {
 
+    
+
     public static void main(String[] args) {
+        MyArrList<Student> arrList1 = new MyArrList<>();
+
         Scanner input = new Scanner(System.in);
         while(true) {
             System.out.println(
@@ -34,7 +39,23 @@ public class MainTest {
                         break;
                     case 1:
 
+                        while(true){
+                            System.out.println("Please enter the name ");
+                            String answerName = input.nextLine();
+
+                            System.out.println("Please enter the surname ");
+                            String answerSurname = input.nextLine();
+
+                            System.out.println("Please enter the ID ");
+                            String answerID = input.nextLine();
+
+                            if(answerID = for(int i=0; i<MyArrList.length; i++){
+
+                            })
+
+                        }
                         break;
+
                     case 2:
 
                         break;
@@ -51,9 +72,9 @@ public class MainTest {
 
                         break;
                     case 7:
-                        System.out.println("The author of this program is \n" +
+                        System.out.println("\nThe author of this program is \n" +
                                 "Hüsamettin Demirtaş who studies at Celal Bayar University \n" +
-                                "on Computer Engineer Department"
+                                "on Computer Engineer Department\n"
                         );
                 }
             } else {
