@@ -1,8 +1,8 @@
-public class MyArrList<AnyType>
+public class MyArrList<T>
 {
     private static final int DEFAULT_CAPACITY = 10;
 
-    private AnyType[] theItems;
+    private T[] theItems;
     private int theSize;
 
     public MyArrList()
@@ -10,7 +10,7 @@ public class MyArrList<AnyType>
         clear();
     }
 
-    public AnyType get( int idx )
+    public T get( int idx )
     {
         if( idx < 0 || idx >= theSize )
             throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + theSize );
@@ -18,24 +18,24 @@ public class MyArrList<AnyType>
         return theItems[ idx ];
     }
 
-    public AnyType set( int idx, AnyType newVal )
+    public T set( int idx, T newVal )
     {
         if( idx < 0 || idx >= theSize )
             throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + theSize );
 
-        AnyType old = theItems[ idx ];
+        T old = theItems[ idx ];
         theItems[ idx ] = newVal;
 
         return old;
     }
 
-    public boolean add(AnyType x)
+    public boolean add(T x)
     {
         add(theSize, x);
         return true;
     }
 
-    public void add(int idx, AnyType x)
+    public void add(int idx, T x)
     {
         if( idx < 0 || idx > theSize )
             throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + theSize );
@@ -51,12 +51,12 @@ public class MyArrList<AnyType>
         theSize++;
     }
 
-    public AnyType remove(int idx)
+    public T remove(int idx)
     {
         if( idx < 0 || idx >= theSize )
             throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + theSize );
 
-        AnyType removedItem = theItems[ idx ];
+        T removedItem = theItems[ idx ];
 
         for(int i=idx; i<theSize-1; i++)
             theItems[i] = theItems[i + 1];
@@ -79,7 +79,7 @@ public class MyArrList<AnyType>
     public void clear()
     {
         theSize = 0;
-        theItems = (AnyType[]) new Object[DEFAULT_CAPACITY];
+        theItems = (T[]) new Object[DEFAULT_CAPACITY];
     }
 
     @Override
@@ -97,9 +97,9 @@ public class MyArrList<AnyType>
 
     private void ensureCapacity(int newCapacity)
     {
-        AnyType[] old = theItems;
+        T[] old = theItems;
 
-        theItems = (AnyType[]) new Object[newCapacity];
+        theItems = (T[]) new Object[newCapacity];
 
         for( int i = 0; i < theSize; i++ )
             theItems[ i ] = old[ i ];

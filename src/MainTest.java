@@ -29,6 +29,7 @@ public class MainTest {
                     case 0:
 
                         while(true) {
+                            // infinite loop if user doesn't input correctly
                             System.out.println("Do you really want to exit? (Y/N) ");
                             String exitAnswer = input.nextLine();
                             if (exitAnswer.equals("Y"))
@@ -40,6 +41,13 @@ public class MainTest {
                         }
                         break;
                     case 1:
+                        /*
+                        This option adds the student to the list, tree and hash structures. You should get from
+                        the user student id, name and surname before adding student. New student should be
+                        added to the appropriate positions of the structures according to its student id (i.e
+                        student id is the key).
+                         */
+
                         System.out.println("Please enter name");
                         String name = input.nextLine();
 
@@ -48,6 +56,7 @@ public class MainTest {
 
                         System.out.println("Please enter id");
                         int id = Integer.parseInt(input.nextLine());
+
 
                         boolean isContain = false;
                         for(int i = 0 ; i < arrList1.size(); i++){
@@ -79,6 +88,10 @@ public class MainTest {
                         break;
 
                     case 2:
+                        /*
+                        First get the student id from the user and (if found) delete this student from all
+                        structures.
+                        */
                         System.out.println("Please enter the ID that you want delete");
                         int wantedToDeleteID = Integer.parseInt(input.nextLine());
                         int index = 0;
@@ -101,18 +114,64 @@ public class MainTest {
 
                         break;
                     case 3:
+                        /*
+                        First get the student id from the user and (if found) and print this student’s properties
+                        to the screen. Also print the number of search levels (how many hops) that you found
+                        the student from the list, tree and hash.
+                        */
+                        System.out.println("Please enter the ID that you want print");
+                        int wantedToPrint = Integer.parseInt(input.nextLine());
+                        int index2 = 0;
+                        boolean isFound2 = false;
+                        for(int i = 0 ; i < arrList1.size(); i++){
+                            if(arrList1.get(i).getID() == wantedToPrint){
+                                isFound2 = true;
+                                break;
+                            }
+                            isFound2=false;
+                            index2++;
+                        }
+                        if(isFound2){
+                            //
+                            System.out.println(arrList1.get(index2).getID());
+                            System.out.println(arrList1.get(index2).getName());
+                            System.out.println(arrList1.get(index2).getSurname());
+
+                        }
+                        else {
+                            System.out.println("The ID doesn't exist");
+                        }
 
                         break;
                     case 4:
+                        /*
+                        If the user selects option 4, first ask him from which data structure he/she want to
+                        operate and print all the student’s information according to selection by traversing
+                        related structure.
+                        */
 
                         break;
                     case 5:
+                        /*
+                        Print to the screen all the distinct “names” (use only names, not surnames) from your
+                        data structures. (i.e. not list duplicate names to the screen).
+                         */
 
                         break;
                     case 6:
+                        /*
+                        Show that how many of each “name” included in the data structures. (use only names,
+                        not surnames). For example you can print like following format:
+                        emre : 2
+                        sevcan : 3
+                        zeynep : 1
+                         */
 
                         break;
                     case 7:
+                        /*
+                        7. Print the author(s) of the program (your student id, name and surname
+                         */
                         System.out.println("\nThe author of this program is \n" +
                                 "Hüsamettin Demirtaş who studies at Celal Bayar University \n" +
                                 "on Computer Engineer Department\n"
