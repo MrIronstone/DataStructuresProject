@@ -1,4 +1,5 @@
-public class Student{
+public class Student
+{
     private String name;
     private String surname;
     private int studentID;
@@ -15,32 +16,9 @@ public class Student{
         return studentID;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public
-
     Student(String n,String s, int id){
         this.name=n;
         this.surname=s;
         this.studentID=id;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        int a = (int) obj;
-        return this.studentID == a;
-    }
-
-
-
 }

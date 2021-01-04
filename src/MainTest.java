@@ -6,6 +6,8 @@ public class MainTest {
 
 
 
+
+
     public static void main(String[] args) {
         MyArrList<Student> arrList1 = new MyArrList<>();
 
@@ -38,31 +40,64 @@ public class MainTest {
                         }
                         break;
                     case 1:
+                        System.out.println("Please enter name");
+                        String name = input.nextLine();
 
-                        while(true){
-                            System.out.println("Please enter the name ");
-                            String answerName = input.nextLine();
+                        System.out.println("Please enter surname");
+                        String surname = input.nextLine();
 
-                            System.out.println("Please enter the surname ");
-                            String answerSurname = input.nextLine();
+                        System.out.println("Please enter id");
+                        int id = Integer.parseInt(input.nextLine());
 
-                            System.out.println("Please enter the ID ");
-                            int answerID = Integer.parseInt(input.nextLine());
-
-                            for(int i = 0 ; i < arrList1.size() ; i++ ){
-                                if(arrList1.equals(answerID))
-                                    System.out.println("This ID already exists.");
-                                    break;
+                        boolean isContain = false;
+                        for(int i = 0 ; i < arrList1.size(); i++){
+                            if(arrList1.get(i).getID() == id){
+                                isContain = true;
+                                break;
                             }
-                            break;
-
-
+                            isContain=false;
                         }
+                        if(isContain){
+                            System.out.println("This ID already exist");
+                        }
+                        else{
+                            Student newStudent = new Student(name,surname,id);
+                            if(arrList1.size()==0)
+                                // The place where the adding is done to all data structures
+                                arrList1.add(newStudent);
+                            else{
+                                int i = 0;
+                                while(id > arrList1.get(i).getID()){
+                                    i++;
+                                }
+                                // The place where the adding is done to all data structures
+                                arrList1.add(i,newStudent);
+                            }
+                        }
+
+
                         break;
 
                     case 2:
-                        System.out.println("Please enter the ID that you want to delete");
-                        String wantedToDeleteID = input.nextLine();
+                        System.out.println("Please enter the ID that you want delete");
+                        int wantedToDeleteID = Integer.parseInt(input.nextLine());
+                        int index = 0;
+                        boolean isFound = false;
+                        for(int i = 0 ; i < arrList1.size(); i++){
+                            if(arrList1.get(i).getID() == wantedToDeleteID){
+                                isFound = true;
+                                break;
+                            }
+                            isFound=false;
+                            index++;
+                        }
+                        if(isFound){
+                            // The place where the deletion is done from all data structures
+                            arrList1.remove(index);
+                        }
+                        else {
+                            System.out.println("The ID doesn't exist");
+                        }
 
                         break;
                     case 3:
