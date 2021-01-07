@@ -116,7 +116,7 @@ public class BinarySearchTree<T extends Comparable<T>>
         
         System.out.print(tempNode.getData() + " ");
         printPreorder(tempNode.getLeft());
-        printPreorder(tempNode.getRight());     
+        printPreorder(tempNode.getRight());
     }
     
     public void printPostorder()
@@ -131,7 +131,7 @@ public class BinarySearchTree<T extends Comparable<T>>
         
         printPostorder(tempNode.getLeft());
         printPostorder(tempNode.getRight());    
-        System.out.print(tempNode.getData() + " ");
+        System.out.println(tempNode.getData() + " ");
     }
    
     public void printInorder()
@@ -146,7 +146,7 @@ public class BinarySearchTree<T extends Comparable<T>>
            
         printInorder(tempNode.getLeft());
         System.out.print(tempNode.getData() + " ");
-        printInorder(tempNode.getRight());     
+        printInorder(tempNode.getRight());
     }
     
     public boolean isEmpty() 

@@ -1,5 +1,6 @@
-public class Student implements Comparable
-{
+import java.sql.SQLOutput;
+
+public class Student implements Comparable<Student> {
     private String name;
     private String surname;
     private int studentID;
@@ -22,16 +23,26 @@ public class Student implements Comparable
         this.studentID=id;
     }
 
-
     @Override
-    public int compareTo(Object o) {
-        Student comparedStudent = (Student) o;
-        if( this.getID() > comparedStudent.getID())
-            return 1;
-        else if( this.getID() == comparedStudent.getID() )
+    public int compareTo(Student o) {
+        if( this.getID() < o.getID())
+            return -1;
+        else if( this.getID() == o.getID())
             return 0;
         else
             return -1;
     }
 
+    @Override
+     /*
+     This method makes the printing a student better
+     Instead of printing its name on memory, it prints its fields.
+     without this override it prints like "Student@49097b5d"
+     with this override, it prints like [Hüsamettin Demirtaş 190315074]
+     */
+    public String toString() {
+        String rStr = "["+ name + " " + surname + " "+ studentID +"]";
+        return rStr;
+    }
 }
+
