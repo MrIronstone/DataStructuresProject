@@ -1,6 +1,4 @@
-import java.sql.SQLOutput;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class MainTest {
 
@@ -22,7 +20,9 @@ public class MainTest {
                     "6. List name counts\n"+
                     "7. About\n"+
                     "Enter your selection: ");
+
             int answer = Integer.parseInt(input.nextLine());
+            System.out.println(answer);
             if (answer >= 0 && answer <= 7) {
                 switch (answer) {
                     case 0:
@@ -200,6 +200,7 @@ public class MainTest {
                                         }
                                         break;
                                     }
+                                    break;
                                 }
                                 case 3:
                                     for ( Student gezici : HashList1)
@@ -217,6 +218,19 @@ public class MainTest {
                         Print to the screen all the distinct “names” (use only names, not surnames) from your
                         data structures. (i.e. not list duplicate names to the screen).
                          */
+                        String[] names = new String[arrList1.size()];
+                        for( int i = 0 ; i < arrList1.size() ; i++ ){
+                            names[i] = arrList1.get(i).getName();
+                        }
+
+
+                        List<String> list = Arrays.asList(names);
+
+                        System.out.println("All Names : "  + list);
+
+                        HashSet<String> set = new HashSet<>(list);
+
+                        System.out.println("No duplicates : "  + set);
 
                         break;
                     case 6:
@@ -227,6 +241,31 @@ public class MainTest {
                         sevcan : 3
                         zeynep : 1
                          */
+                        TreeMap<String,Integer> myMap = new TreeMap<>();
+
+                        //tokenize the input
+                        String[] tokens = new String[arrList1.size()];
+                        for( int i = 0 ; i < arrList1.size() ; i++ ){
+                            tokens[i] = arrList1.get(i).getName();
+                        }
+
+                        int count;
+
+                        for(String token : tokens)
+                        {
+                            String word = token.toLowerCase();
+
+                            if(myMap.containsKey(word)) //is word in map?
+                            {
+                                count = myMap.get(word);
+                                myMap.put(word,count+1);
+                            }
+                            else
+                                myMap.put(word,1); //add new word
+                        }
+
+                        System.out.print("Name Counts : ");
+                        System.out.println(myMap);
 
                         break;
                     case 7:
