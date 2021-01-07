@@ -1,4 +1,4 @@
-public class Student
+public class Student implements Comparable
 {
     private String name;
     private String surname;
@@ -21,4 +21,17 @@ public class Student
         this.surname=s;
         this.studentID=id;
     }
+
+
+    @Override
+    public int compareTo(Object o) {
+        Student comparedStudent = (Student) o;
+        if( this.getID() > comparedStudent.getID())
+            return 1;
+        else if( this.getID() == comparedStudent.getID() )
+            return 0;
+        else
+            return -1;
+    }
+
 }

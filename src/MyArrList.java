@@ -51,8 +51,10 @@ public class MyArrList<T>
         theSize++;
     }
 
-    public T remove(int idx)
+    public void remove(int idx)
     {
+
+
         if( idx < 0 || idx >= theSize )
             throw new ArrayIndexOutOfBoundsException( "Index " + idx + "; size " + theSize );
 
@@ -63,7 +65,6 @@ public class MyArrList<T>
 
         theSize--;
 
-        return removedItem;
     }
 
     public int size()

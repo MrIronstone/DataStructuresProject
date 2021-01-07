@@ -1,15 +1,11 @@
-
-
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class MainTest {
 
-
-
-
-
     public static void main(String[] args) {
         MyArrList<Student> arrList1 = new MyArrList<>();
+        HashSet<Student> HashList1 = new HashSet<>();
 
         Scanner input = new Scanner(System.in);
         while(true) {
@@ -60,7 +56,7 @@ public class MainTest {
 
                         boolean isContain = false;
                         for(int i = 0 ; i < arrList1.size(); i++){
-                            if(arrList1.get(i).getID() == id){
+                            if( arrList1.get(i).getID() == id){
                                 isContain = true;
                                 break;
                             }
@@ -71,17 +67,21 @@ public class MainTest {
                         }
                         else{
                             Student newStudent = new Student(name,surname,id);
+                            arrList1.add(newStudent);
+                            HashList1.add(newStudent);
+                            /*
                             if(arrList1.size()==0)
                                 // The place where the adding is done to all data structures
                                 arrList1.add(newStudent);
                             else{
                                 int i = 0;
-                                while(id > arrList1.get(i).getID()){
+                                while( id > arrList1.get(i).getID()){
                                     i++;
                                 }
                                 // The place where the adding is done to all data structures
                                 arrList1.add(i,newStudent);
                             }
+                            */
                         }
 
 
@@ -97,7 +97,7 @@ public class MainTest {
                         int index = 0;
                         boolean isFound = false;
                         for(int i = 0 ; i < arrList1.size(); i++){
-                            if(arrList1.get(i).getID() == wantedToDeleteID){
+                            if( arrList1.get(i).getID() == wantedToDeleteID){
                                 isFound = true;
                                 break;
                             }
@@ -124,7 +124,7 @@ public class MainTest {
                         int index2 = 0;
                         boolean isFound2 = false;
                         for(int i = 0 ; i < arrList1.size(); i++){
-                            if(arrList1.get(i).getID() == wantedToPrint){
+                            if( arrList1.get(i).getID() == wantedToPrint){
                                 isFound2 = true;
                                 break;
                             }
@@ -133,9 +133,13 @@ public class MainTest {
                         }
                         if(isFound2){
                             //
-                            System.out.println(arrList1.get(index2).getID());
-                            System.out.println(arrList1.get(index2).getName());
-                            System.out.println(arrList1.get(index2).getSurname());
+                            System.out.print("[");
+                            System.out.print(arrList1.get(index2).getID());
+                            System.out.print(", ");
+                            System.out.print(arrList1.get(index2).getName());
+                            System.out.print(", ");
+                            System.out.print(arrList1.get(index2).getSurname());
+                            System.out.println("]");
 
                         }
                         else {
