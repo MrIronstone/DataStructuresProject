@@ -30,7 +30,7 @@ public class Student implements Comparable<Student> {
         else if( this.getID() == o.getID())
             return 0;
         else
-            return -1;
+            return 1;
     }
 
     @Override
