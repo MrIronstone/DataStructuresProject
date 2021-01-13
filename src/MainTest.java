@@ -147,7 +147,7 @@ public class MainTest {
                             switch (answerForPrint) {
                                 case 1: {
 
-                                    arrList1.toString();
+                                    System.out.println(arrList1.toString());
                                     break;
                                 }
                                 case 2: {

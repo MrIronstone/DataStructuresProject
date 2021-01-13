@@ -88,7 +88,7 @@ public class MyArrList<T>
     {
         String rStr = "[ ";
 
-        for(int i=0; i<theSize; i++)
+        for(int i=0; i < theSize; i++)
             rStr = rStr + theItems[i] + " ";
 
         rStr = rStr + "]";
