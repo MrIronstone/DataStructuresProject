@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class Student implements Comparable<Student> {
     private String name;
     private String surname;

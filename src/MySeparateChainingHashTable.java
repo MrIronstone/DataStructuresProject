@@ -53,7 +53,7 @@ public class MySeparateChainingHashTable<T>
 
             System.out.print("|" + i + "|" + " --> ");
 
-            for(int j=0; j<whichList.size(); j++)
+            for(int j=0; j < whichList.size(); j++)
                 System.out.print(whichList.get(j) + " --> ");
 
             System.out.println();
