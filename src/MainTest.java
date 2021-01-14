@@ -6,7 +6,7 @@ public class MainTest {
 
         MyArrList<Student> arrList1 = new MyArrList<>();
         BinarySearchTree<Student> Tree1 = new BinarySearchTree<>();
-        HashSet<Student> HashList1 = new HashSet<>();
+        MySeparateChainingHashTable<Student> HashTable1 = new MySeparateChainingHashTable<>();
 
         Scanner input = new Scanner(System.in);
         while(true) {
@@ -69,7 +69,7 @@ public class MainTest {
                             Student newStudent = new Student(name, surname, id);
                             arrList1.add(newStudent);
                             Tree1.insertIteratively(newStudent);
-                            HashList1.add(newStudent);
+                            HashTable1.insert(newStudent);
                         }
                     }
 
@@ -94,7 +94,7 @@ public class MainTest {
                             // The place where the deletion is done from all data structures
                             arrList1.remove(index);
                             Tree1.deleteRecursively(Tree1.root,arrList1.get(index));
-                            HashList1.remove(arrList1.get(index));
+                            HashTable1.remove(arrList1.get(index));
                         } else {
                             System.out.println("The ID doesn't exist");
                         }
@@ -176,9 +176,7 @@ public class MainTest {
                                     break;
                                 }
                                 case 3:
-                                    for (Student gezici : HashList1)
-                                        System.out.println(gezici);
-                                    break;
+                                    HashTable1.printHashTable();
                                 default:
                                     System.out.println("You Typed Wrong, Try Again");
                             }
