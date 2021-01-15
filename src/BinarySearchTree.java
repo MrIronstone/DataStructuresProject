@@ -1,7 +1,7 @@
-public class BinarySearchTree<T extends Comparable<T>>
+public class BinarySearchTree<T extends Comparable<? super T>>
 {
 
-    public class Node<T extends Comparable<? super T>>
+    private class Node<T extends Comparable<? super T>>
     {
         private Node<T> left;
         private T data;
