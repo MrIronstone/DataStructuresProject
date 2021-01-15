@@ -1,4 +1,4 @@
-public class BinarySearchTree<T extends Comparable<? super T>>
+public class MyBinarySearchTree<T extends Comparable<? super T>>
 {
 
     private class Node<T extends Comparable<? super T>>

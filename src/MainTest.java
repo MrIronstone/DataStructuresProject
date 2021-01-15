@@ -5,7 +5,7 @@ public class MainTest {
     public static void main(String[] args) {
 
         MyArrList<Student> arrList1 = new MyArrList<>();
-        BinarySearchTree<Student> Tree1 = new BinarySearchTree<>();
+        MyBinarySearchTree<Student> Tree1 = new MyBinarySearchTree<>();
         MySeparateChainingHashTable<Student> HashTable1 = new MySeparateChainingHashTable<>();
 
         Scanner input = new Scanner(System.in);
@@ -138,6 +138,7 @@ public class MainTest {
                         related structure.
                         */
                         while (true) {
+                            int flag1 = 0;
                             System.out.println("Which Data Structure do you want to print ?" +
                                     "\n 1 For List" +
                                     "\n 2 For Binary Search Tree" +
@@ -145,13 +146,14 @@ public class MainTest {
 
                             int answerForPrint = Integer.parseInt(input.nextLine());
                             switch (answerForPrint) {
-                                case 1: {
+                                case 1 -> {
 
                                     System.out.println(arrList1.toString());
-                                    break;
+                                    flag1++;
                                 }
-                                case 2: {
+                                case 2 -> {
                                     while (true) {
+                                        int flag2 = 0;
 
                                         System.out.println("Which traversal do you want to use to print Tree?" +
                                                 "\n 1 For PreOrder" +
@@ -162,25 +164,29 @@ public class MainTest {
                                         switch (answerForTreeTraversal) {
                                             case 1 -> {
                                                 Tree1.printPreorder();
+                                                flag2++;
                                             }
                                             case 2 -> {
                                                 Tree1.printInorder();
+                                                flag2++;
                                             }
                                             case 3 -> {
                                                 Tree1.printPostorder();
+                                                flag2++;
                                             }
                                             default -> System.out.println("You Typed Wrong, Try again");
                                         }
-                                        break;
+                                        if(flag2 ==1 ) break;
                                     }
-                                    break;
+                                    flag1++;
                                 }
-                                case 3:
+                                case 3 -> {
                                     HashTable1.printHashTable();
-                                default:
-                                    System.out.println("You Typed Wrong, Try Again");
+                                    flag1++;
+                                }
+                                default -> System.out.println("You Typed Wrong, Try Again");
                             }
-                            break;
+                            if(flag1 == 1) break;
                         }
                     }
                     case "5" -> {
@@ -236,14 +242,11 @@ public class MainTest {
                         System.out.println(myMap);
 
                     }
-                    case "7" -> {
-                        /*
+                    case "7" -> /*
                         7. Print the author(s) of the program (your student id, name and surname
-                         */
-                        System.out.println("\nThe author of this program is \n" +
-                                "Hüsamettin Demirtaş who studies at Celal Bayar University \n" +
-                                "on Computer Engineer Department\n");
-                    }
+                         */ System.out.println("\nThe author of this program is \n" +
+                                 "Hüsamettin Demirtaş 190315074 who studies at Celal Bayar University \n" +
+                                 "on Computer Engineer Department\n");
                     default -> System.out.println("Wrong Input, Try Again");
                 }
             }
